@@ -93,7 +93,6 @@ body.dk{--hud:#efe8d7;--hudr:239,232,215;--shd:8,10,18}
 #title .snd .sub:empty{display:none}
 #title .snd.off{cursor:pointer;opacity:.95}
 #title .snd.off .sub{text-decoration:underline;text-underline-offset:4px}
-#title .how{margin-top:10px;font-size:15px;line-height:1.8;letter-spacing:.12em;opacity:.75}
 #title .best{margin-top:4px;font-size:14px;letter-spacing:.12em;opacity:.6;min-height:1.2em}
 #cred{position:fixed;left:50%;bottom:calc(var(--sb) + 10px);transform:translateX(-50%);width:max-content;max-width:94vw;text-align:center;font-size:12px;line-height:1.6;letter-spacing:.06em;color:rgba(236,230,214,.55);opacity:0;pointer-events:none;transition:opacity .9s ease}
 #title.on+#cred{opacity:1;pointer-events:auto}
@@ -141,7 +140,7 @@ body.dk{--hud:#efe8d7;--hudr:239,232,215;--shd:8,10,18}
 .vq span{writing-mode:vertical-rl;white-space:nowrap}
 #fint .a,#fint .b{white-space:nowrap}
 #err{display:none;position:fixed;left:16px;right:16px;bottom:16px;padding:12px;border-radius:6px;background:#f1ebdd;color:#5a1b16;font-size:15px}
-@media (max-height:520px){#card{left:calc(var(--sl) + 18vw);top:calc(var(--st) + 7vh)}#card .cm{font-size:clamp(48px,13vh,90px)}#title .tc{top:calc(var(--st) + 4vh)}#title .tt{font-size:clamp(64px,22vh,120px)}#title .tf{right:auto;width:60vw;bottom:calc(var(--sb) + 14vh)}#title .how{font-size:13px;line-height:1.6}#over .sheet,#win .sheet{width:min(92vw,680px);display:grid;grid-auto-flow:row dense;grid-template-columns:auto 1fr;column-gap:28px;row-gap:8px;padding:16px 24px;align-items:center;justify-items:center}#over .sheet .q{grid-column:1;grid-row:1 / span 7}#over .sheet>:not(.q){grid-column:2}#win .sheet{grid-template-columns:1fr 1fr;top:50%;bottom:auto;transform:translate(-50%,-50%)}#win .sheet h2{font-size:56px}#win .sheet h2,#win .sheet .ttl,#win .sheet .q2{grid-column:1}#win .sheet>:not(h2):not(.ttl):not(.q2){grid-column:2}.bts{flex-direction:row}.sbook{max-width:none;width:min(94vw,720px);padding:14px 18px;gap:10px}#scroll .sheet h2{font-size:42px}.fgrid{grid-template-rows:none;grid-template-columns:repeat(9,auto)}.fcell{min-width:62px;min-height:150px}}
+@media (max-height:520px){#card{left:calc(var(--sl) + 18vw);top:calc(var(--st) + 7vh)}#card .cm{font-size:clamp(48px,13vh,90px)}#title .tc{top:calc(var(--st) + 4vh)}#title .tt{font-size:clamp(64px,22vh,120px)}#title .tf{right:auto;width:60vw;bottom:calc(var(--sb) + 14vh)}#over .sheet,#win .sheet{width:min(92vw,680px);display:grid;grid-auto-flow:row dense;grid-template-columns:auto 1fr;column-gap:28px;row-gap:8px;padding:16px 24px;align-items:center;justify-items:center}#over .sheet .q{grid-column:1;grid-row:1 / span 7}#over .sheet>:not(.q){grid-column:2}#win .sheet{grid-template-columns:1fr 1fr;top:50%;bottom:auto;transform:translate(-50%,-50%)}#win .sheet h2{font-size:56px}#win .sheet h2,#win .sheet .ttl,#win .sheet .q2{grid-column:1}#win .sheet>:not(h2):not(.ttl):not(.q2){grid-column:2}.bts{flex-direction:row}.sbook{max-width:none;width:min(94vw,720px);padding:14px 18px;gap:10px}#scroll .sheet h2{font-size:42px}.fgrid{grid-template-rows:none;grid-template-columns:repeat(9,auto)}.fcell{min-width:62px;min-height:150px}}
 @media (prefers-reduced-motion:reduce){#title .tap,#hint svg,#card.on .cm,#card.on .cm::before,#card.on .cq span,#bFy.on,.sealw.full::before{animation:none}#card{transition:opacity .4s}}
 </style>
 </head>
@@ -172,7 +171,6 @@ body.dk{--hud:#efe8d7;--hudr:239,232,215;--shd:8,10,18}
   <div class="tf">
     <div class="snd" id="sndT"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11"/></svg><span>开启声音，获得最好的体验</span><span class="sub" id="sndS"></span></div>
     <div class="tap">轻触 · 化鲲为鹏</div>
-    <div class="how" id="howT">拖动引领鸟群　收拢散落的鸟<br>双击振翅疾飞　擦身攒风扶摇<br>避开岩壁鹰隼　莫坠脚下墨渊</div>
     <div class="best" id="bestT"></div>
     <div class="lks"><button class="lk" id="bDaily">今日之风</button><button class="lk" id="bScroll">寓言卷</button></div>
     <div class="best" id="dailyT"></div>
@@ -287,7 +285,6 @@ function cnNum(n) {
 const liText = li => cnNum(li >= 1000 ? Math.floor(li / 100) * 100 : Math.floor(li / 10) * 10) + '里';
 const RM = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
 const COARSE = !!(window.matchMedia && matchMedia('(pointer: coarse)').matches);
-if (!COARSE) $('howT').innerHTML = '鼠标引领鸟群　收拢散落的鸟<br>点击或空格振翅　风满按 E 扶摇<br>避开岩壁鹰隼　莫坠脚下墨渊';
 
 /* ================= the nine heavens ================= */
 const STAGE_LEN = 5000, NST = 9, GOAL = STAGE_LEN * NST, LI = 2;
