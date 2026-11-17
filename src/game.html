@@ -87,6 +87,12 @@ body.dk{--hud:#efe8d7;--hudr:239,232,215;--shd:8,10,18}
 #title .tq{writing-mode:vertical-rl;font-size:clamp(17px,4.6vw,23px);line-height:1.75;letter-spacing:.2em;color:rgba(24,21,17,.82);margin-top:14px;text-shadow:0 0 12px rgba(242,238,226,.8)}
 #title .tf{position:absolute;left:0;right:0;bottom:calc(var(--sb) + 19.5vh);text-align:center;color:#1d1a16;text-shadow:0 0 14px rgba(240,236,226,.95),0 0 4px rgba(240,236,226,.9)}
 #title .tap{font-size:clamp(23px,6.2vw,31px);letter-spacing:.32em;padding-left:.32em;animation:breathe 2.6s ease-in-out infinite}
+#title .snd{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2px 8px;margin-bottom:14px;font-size:15px;letter-spacing:.14em;opacity:.8}
+#title .snd svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#title .snd .sub{flex-basis:100%;font-size:13px;opacity:.85}
+#title .snd .sub:empty{display:none}
+#title .snd.off{cursor:pointer;opacity:.95}
+#title .snd.off .sub{text-decoration:underline;text-underline-offset:4px}
 #title .how{margin-top:10px;font-size:15px;line-height:1.8;letter-spacing:.12em;opacity:.75}
 #title .best{margin-top:4px;font-size:14px;letter-spacing:.12em;opacity:.6;min-height:1.2em}
 #cred{position:fixed;left:50%;bottom:calc(var(--sb) + 10px);transform:translateX(-50%);width:max-content;max-width:94vw;text-align:center;font-size:12px;line-height:1.6;letter-spacing:.06em;color:rgba(236,230,214,.55);opacity:0;pointer-events:none;transition:opacity .9s ease}
@@ -164,6 +170,7 @@ body.dk{--hud:#efe8d7;--hudr:239,232,215;--shd:8,10,18}
     <div class="tq">北冥有鱼　其名为鲲<br>化而为鸟　其名为鹏</div>
   </div>
   <div class="tf">
+    <div class="snd" id="sndT"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11"/></svg><span>开启声音，获得最好的体验</span><span class="sub" id="sndS"></span></div>
     <div class="tap">轻触 · 化鲲为鹏</div>
     <div class="how" id="howT">拖动引领鸟群　收拢散落的鸟<br>双击振翅疾飞　擦身攒风扶摇<br>避开岩壁鹰隼　莫坠脚下墨渊</div>
     <div class="best" id="bestT"></div>
@@ -2398,9 +2405,20 @@ function toggleSound() {
   const m = AU.toggle();
   $('sndOn').style.display = m ? 'none' : ''; $('sndOff').style.display = m ? '' : 'none';
   $('bSnd').setAttribute('aria-pressed', m ? 'true' : 'false');
+  sndHint();
 }
+// the title asks for sound; when the player muted the game last time it also says how to turn it back on
+function sndHint() {
+  const m = AU.isMuted();
+  $('sndS').textContent = m ? (COARSE ? '现在是静音，点这里开启' : '现在是静音，点这里或按 M 开启') : '';
+  $('sndT').classList.toggle('off', m);
+}
+// on the title the sound button sits under the title screen, so a muted player turns the sound on from the hint itself;
+// with the sound already on, a tap on the hint starts the game like anywhere else on the title
+$('sndT').addEventListener('click', e => { if (AU.isMuted()) { e.stopPropagation(); toggleSound(); } });
 $('bSnd').addEventListener('click', toggleSound);
 if (AU.isMuted()) { $('sndOn').style.display = 'none'; $('sndOff').style.display = ''; }
+sndHint();
 document.addEventListener('visibilitychange', () => { if (document.hidden) setPause(true); });
 let resizeTO = 0;
 window.addEventListener('resize', () => { clearTimeout(resizeTO); resizeTO = setTimeout(resize, 120); });
