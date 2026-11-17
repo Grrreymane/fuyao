@@ -1,0 +1,14 @@
+# build output (python3 build.py / python3 demo/build_demo.py)
+dist/
+demo/dist/
+
+# screenshots and scratch from visual checks
+shots/
+fontsample.png
+
+# font not used by the build
+fonts/LiuJianMaoCao.ttf
+
+__pycache__/
+*.pyc
+.DS_Store

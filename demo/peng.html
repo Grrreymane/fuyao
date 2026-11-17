@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>鹏 · 特写</title>
+<style>body{margin:0;background:#222}canvas{display:block}</style></head>
+<body><canvas id="c"></canvas>
+<script>
+/* close-up of the painted Peng for review: on the 九霄 sky and on plain paper, wings up and mid-beat */
+const TAU = Math.PI * 2, clamp = (v, a, b) => (v < a ? a : v > b ? b : v), lerp = (a, b, t) => a + (b - a) * t;
+const mixC = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+const rgba = (c, al) => 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',' + (al === undefined ? 1 : al) + ')';
+function mkCanvas(w, h) { const c = document.createElement('canvas'); c.width = Math.max(1, Math.ceil(w)); c.height = Math.max(1, Math.ceil(h)); return c; }
+/*@include makerng*/
+/*@include peng.js*/
+const cv = document.getElementById('c'), W = +(new URLSearchParams(location.search).get('w') || 1600), H = Math.round(W * 0.62);
+cv.width = W; cv.height = H;
+const g = cv.getContext('2d');
+const flaps = (new URLSearchParams(location.search).get('flap') || '0,0.55').split(',').map(Number);
+const bgs = [['#f1d79c', '#fff5dc'], ['#e2ddcf', '#f2eee3']];
+flaps.forEach((fl, i) => {
+  const x0 = i * W / flaps.length, w = W / flaps.length, gr = g.createLinearGradient(0, 0, 0, H), bg = bgs[i % 2];
+  gr.addColorStop(0, bg[0]); gr.addColorStop(1, bg[1]); g.fillStyle = gr; g.fillRect(x0, 0, w, H);
+  const S = w * 0.4;
+  g.save(); g.beginPath(); g.rect(x0, 0, w, H); g.clip();
+  PENG.draw(g, { S, x: x0 + w * 0.52, y: H * 0.58, flap: fl, bob: 0 }, 1, S);
+  g.restore();
+});
+document.title = 'ready';
+</script></body></html>

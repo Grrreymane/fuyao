@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>扶摇九万里 · 九重天配乐试听</title>
+<style>
+@font-face{font-family:FYT;src:url(data:font/woff2;base64,__FYT__) format('woff2');font-display:block}
+@font-face{font-family:FYK;src:url(data:font/woff2;base64,__FYK__) format('woff2');font-display:block}
+:root{--paper:#ece5d6;--ink:#1c1a17;--soft:#5f584d;--red:#a5372b;--line:rgba(28,26,23,.16)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{background:var(--paper);color:var(--ink);font:15px/1.6 -apple-system,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;-webkit-tap-highlight-color:transparent;
+  background-image:radial-gradient(ellipse 70% 40% at 15% 0%,rgba(255,255,255,.55),transparent 70%),radial-gradient(ellipse 60% 35% at 100% 100%,rgba(70,60,45,.10),transparent 70%),repeating-linear-gradient(0deg,rgba(0,0,0,.012) 0 1px,transparent 1px 3px)}
+main{max-width:600px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 34px) calc(env(safe-area-inset-right) + 20px) calc(env(safe-area-inset-bottom) + 40px) calc(env(safe-area-inset-left) + 20px)}
+header{position:relative;margin-bottom:22px}
+h1{font:400 60px/1 FYT,serif;letter-spacing:.06em}
+.sub{margin-top:12px;font:400 18px/1.3 FYK,serif;color:var(--soft);letter-spacing:.12em}
+.seal{position:absolute;right:2px;top:6px;width:44px;height:44px;border:2.5px solid var(--red);border-radius:5px;color:var(--red);font:400 27px/38px FYK,serif;text-align:center;transform:rotate(-5deg);opacity:.85}
+h2{font:400 21px/1.2 FYK,serif;letter-spacing:.14em;margin:26px 0 12px;display:flex;align-items:center;gap:12px}
+h2:after{content:"";flex:1;height:1px;background:var(--line)}
+button{font:inherit;color:inherit;-webkit-appearance:none;appearance:none;cursor:pointer}
+button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.tour{display:flex;align-items:center;gap:16px}
+.big{flex:none;width:64px;height:64px;border-radius:50%;border:0;background:var(--ink);position:relative;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+.big:before{content:"";position:absolute;left:26px;top:20px;border-style:solid;border-width:12px 0 12px 19px;border-color:transparent transparent transparent var(--paper)}
+.big[aria-pressed=true]{background:var(--red)}
+.big[aria-pressed=true]:before{left:23px;top:23px;border:0;width:18px;height:18px;background:var(--paper);border-radius:2px}
+.tx{flex:1;min-width:0}
+#now{font:400 23px/1.25 FYK,serif;letter-spacing:.06em}
+#nowSub{color:var(--soft);font-size:14px;margin-top:2px;min-height:22px}
+.bar{height:2px;background:var(--line);margin-top:9px;overflow:hidden;border-radius:1px}
+.bar i{display:block;height:100%;background:var(--red);transform:scaleX(0);transform-origin:left}
+.hint{color:var(--soft);font-size:13.5px;margin-top:10px}
+.heav{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.hv{border:1px solid var(--line);background:rgba(255,255,255,.35);border-radius:10px;padding:11px 4px 9px;text-align:center}
+.hv b{display:block;font:400 25px/1.1 FYK,serif;letter-spacing:.08em;font-weight:400}
+.hv span{display:block;font-size:12px;color:var(--soft);margin-top:5px}
+.hv[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.hv[aria-pressed=true] span{color:rgba(236,229,214,.75)}
+.ev{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid rgba(28,26,23,.55);background:transparent;border-radius:999px;padding:8px 15px;font-size:14.5px;line-height:1.3}
+.chip[aria-pressed=true]{background:var(--red);border-color:var(--red);color:var(--paper)}
+.chip.ghost{border-color:var(--line);color:var(--soft)}
+#status{min-height:22px;margin-top:14px;color:var(--red);font-size:14px}
+footer{margin-top:20px;color:var(--soft);font-size:12.5px;line-height:1.75}
+footer b{font-weight:600;color:var(--ink)}
+@media (max-width:360px){h1{font-size:50px}.hv b{font-size:22px}.chip{padding:7px 12px}}
+@media (min-width:700px){main{padding-top:60px}h1{font-size:72px}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>列子御风</h1>
+    <p class="sub">扶摇九万里 · 九重天配乐试听</p>
+    <div class="seal" aria-hidden="true">听</div>
+  </header>
+
+  <h2>全程</h2>
+  <div class="tour">
+    <button id="tour" class="big" aria-pressed="false" aria-label="从北冥飞到九霄"></button>
+    <div class="tx"><div id="now">从北冥飞到九霄</div><div id="nowSub">约三分半钟，像真玩一局那样</div><div class="bar"><i id="tourBar"></i></div></div>
+  </div>
+  <p class="hint">每二十秒过一道天门；中途有鹰、雷、龙来袭，落日时鸟群一度只剩几只，天风里乘扶摇，最后抵达九万里。</p>
+
+  <h2>单听一重</h2>
+  <div class="heav">
+    <button class="hv" data-si="0" aria-pressed="false"><b>北冥</b><span>散序 · 琴泛音</span></button>
+    <button class="hv" data-si="1" aria-pressed="false"><b>松崖</b><span>慢板 · 古琴</span></button>
+    <button class="hv" data-si="2" aria-pressed="false"><b>飞瀑</b><span>慢板 · 流水筝</span></button>
+    <button class="hv" data-si="3" aria-pressed="false"><b>云海</b><span>中板 · 笙琵琶</span></button>
+    <button class="hv" data-si="4" aria-pressed="false"><b>雷泽</b><span>快板 · 扫弦</span></button>
+    <button class="hv" data-si="5" aria-pressed="false"><b>落日</b><span>中板 · 箫领奏</span></button>
+    <button class="hv" data-si="6" aria-pressed="false"><b>星河</b><span>散板 · 喘息</span></button>
+    <button class="hv" data-si="7" aria-pressed="false"><b>天风</b><span>急板 · 入破</span></button>
+    <button class="hv" data-si="8" aria-pressed="false"><b>九霄</b><span>全奏</span></button>
+  </div>
+  <p class="hint">正在播放时点另一重，会像游戏里过天门那样接过去。</p>
+
+  <h2>游戏里的变化</h2>
+  <div class="ev">
+    <button class="chip" data-ev="threat" aria-pressed="false">鹰来了</button>
+    <button class="chip" data-ev="tutti" aria-pressed="false">扶摇</button>
+    <button class="chip" data-ev="low" aria-pressed="false">鸟只剩几只</button>
+    <button class="chip" data-ev="wind">风满</button>
+    <button class="chip" data-ev="fable">遇到寓言</button>
+    <button class="chip" data-ev="finale">抵达九万里</button>
+    <button class="chip" data-ev="over">失败</button>
+    <button class="chip ghost" id="stop">停止</button>
+  </div>
+  <p class="hint">先点上面任意一重，再点这些试试。</p>
+
+  <p id="status" role="status"></p>
+
+  <footer>
+    <p><b>旋律</b>取自明代《神奇秘谱》（1425）所收古琴曲《列子御风》第一至第五段、第八段和第十段，古谱已属公有领域；节奏与配器为本游戏重新编写。</p>
+    <p><b>音色</b>中的箫、筝、琵琶、鼓暂用尺八、日本筝、三味线、太鼓的采样代替，来自 FluidR3_GM 音色库（Frank Wen，CC BY 3.0）。古琴、笙、锣、钹为程序合成。</p>
+    <p>建议戴耳机试听。</p>
+  </footer>
+</main>
+<script>window.MU_SAMPLES = __SAMPLES__;</script>
+<script>
+/*@include music.js*/
+(() => {
+  const $ = id => document.getElementById(id);
+  const hvs = [...document.querySelectorAll('.hv')], chip = k => document.querySelector('.chip[data-ev=' + k + ']');
+  const NAMES = ['北冥', '松崖', '飞瀑', '云海', '雷泽', '落日', '星河', '天风', '九霄'];
+  const BAN = ['散序', '慢板', '慢板', '中板', '快板', '中板', '散板', '急板', '全奏'];
+  // a run like the real game: a gate every twenty seconds and the usual trouble on the way
+  const TOUR = [
+    [0, 'start', 0], [20, 'stage', 1], [40, 'stage', 2], [60, 'stage', 3], [70, 'threat', 4], [80, 'stage', 4], [87, 'threat', 3], [93, 'threat', 5],
+    [100, 'stage', 5], [104, 'low', true], [113, 'low', false], [120, 'stage', 6], [127, 'fable'], [140, 'stage', 7], [146, 'wind'], [149, 'tutti'],
+    [160, 'stage', 8], [167, 'threat', 4], [180, 'finale'], [212, 'end']
+  ];
+  const TOUR_LEN = 212;
+  let tour = null, threatUntil = 0, lowOn = false, wasLoaded = false;
+  const status = s => { $('status').textContent = s; };
+  function ensure() {
+    try { MU.init(); } catch (e) { status('这个浏览器不支持网页音频。'); return false; }
+    MU.autoPump(true);
+    if (!MU.loaded) status('正在载入音色……先用合成音顶着。');
+    return true;
+  }
+  function mark(si) { hvs.forEach((b, i) => b.setAttribute('aria-pressed', i === si ? 'true' : 'false')); }
+  function label(si, sub) {
+    $('now').textContent = si >= 0 ? '第' + '一二三四五六七八九'[si] + '重 · ' + NAMES[si] : sub[0];
+    $('nowSub').textContent = si >= 0 ? BAN[si] + (sub ? ' · ' + sub : '') : sub[1];
+  }
+  function setLow(v) { lowOn = v; MU.low(v); chip('low').setAttribute('aria-pressed', v ? 'true' : 'false'); }
+  function playHeaven(si) {
+    if (!ensure()) return;
+    if (MU.mode === 'play' || MU.mode === 'rest') MU.stage(si); else MU.start(si);
+    mark(si); label(si);
+  }
+  function threat(sec) { MU.threat(1); threatUntil = performance.now() + sec * 1000; chip('threat').setAttribute('aria-pressed', 'true'); }
+  const ACT = {
+    start: si => { MU.start(si); mark(si); label(si); },
+    stage: si => { MU.stage(si); mark(si); label(si); },
+    threat: sec => { threat(sec); $('nowSub').textContent = BAN[MU.heaven] + ' · 来袭'; },
+    low: v => { setLow(v); $('nowSub').textContent = BAN[MU.heaven] + (v ? ' · 鸟群只剩几只' : ''); },
+    fable: () => { MU.cue('fable'); $('nowSub').textContent = BAN[MU.heaven] + ' · 遇到寓言'; },
+    wind: () => { MU.cue('wind'); $('nowSub').textContent = BAN[MU.heaven] + ' · 风满'; },
+    tutti: () => { MU.tutti(6); chip('tutti').setAttribute('aria-pressed', 'true'); $('nowSub').textContent = BAN[MU.heaven] + ' · 扶摇'; },
+    finale: () => { MU.finale(); mark(-1); label(-1, ['抵达九万里', '尾声 · 兴尽而返']); },
+    end: () => stopTour()
+  };
+  function stopTour() { tour = null; $('tour').setAttribute('aria-pressed', 'false'); $('tourBar').style.transform = 'scaleX(0)'; }
+  function stopAll() {
+    stopTour(); MU.stop(0.6); mark(-1); setLow(false); threatUntil = 0;
+    label(-1, ['从北冥飞到九霄', '约三分半钟，像真玩一局那样']);
+  }
+  $('tour').addEventListener('click', () => {
+    if (tour) { stopAll(); return; }
+    if (!ensure()) return;
+    setLow(false);
+    tour = { t0: performance.now(), i: 0 };
+    $('tour').setAttribute('aria-pressed', 'true');
+  });
+  hvs.forEach((b, i) => b.addEventListener('click', () => { stopTour(); playHeaven(i); }));
+  for (const c of document.querySelectorAll('.chip[data-ev]')) c.addEventListener('click', () => {
+    if (!ensure()) return;
+    const k = c.dataset.ev;
+    if ((k === 'finale' || k === 'over') && tour) stopTour();
+    if (k !== 'finale' && k !== 'over' && MU.mode !== 'play') { status('先点一重天开始播放。'); return; }
+    if (k === 'threat') threat(4);
+    else if (k === 'tutti') { MU.tutti(6); c.setAttribute('aria-pressed', 'true'); }
+    else if (k === 'low') setLow(!lowOn);
+    else if (k === 'wind' || k === 'fable') MU.cue(k);
+    else if (k === 'finale') { MU.finale(); mark(-1); label(-1, ['抵达九万里', '尾声 · 兴尽而返']); setLow(false); }
+    else if (k === 'over') { MU.over(); mark(-1); label(-1, ['鸟群散尽', '古琴独奏收尾']); setLow(false); }
+  });
+  $('stop').addEventListener('click', stopAll);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') stopAll(); });
+  function loop(now) {
+    if (threatUntil) {
+      if (now < threatUntil) MU.threat(1);
+      else { threatUntil = 0; chip('threat').setAttribute('aria-pressed', 'false'); }
+    }
+    if (chip('tutti').getAttribute('aria-pressed') === 'true' && !MU.tuttiOn) chip('tutti').setAttribute('aria-pressed', 'false');
+    if (tour) {
+      const t = (now - tour.t0) / 1000;
+      while (tour && tour.i < TOUR.length && TOUR[tour.i][0] <= t) { const [, a, arg] = TOUR[tour.i++]; ACT[a](arg); }
+      if (tour) $('tourBar').style.transform = 'scaleX(' + Math.min(1, t / TOUR_LEN).toFixed(4) + ')';
+    }
+    if (!wasLoaded && MU.ready && MU.loaded) { wasLoaded = true; if ($('status').textContent.startsWith('正在载入')) status(''); }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+  /*DEBUG*/window.__demo = { stopAll, tour: () => tour && { t: (performance.now() - tour.t0) / 1000, i: tour.i }, TOUR };/*/DEBUG*/
+})();
+</script>
+</body>
+</html>
