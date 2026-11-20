@@ -2496,6 +2496,7 @@ requestAnimationFrame(loop);
     else if (name === 'wipe') for (let i = 0; i < nB; i++) bdead[i] = 1;
   },
   start: () => startGame(),
+  tgt: () => [tgt.sx, tgt.sy], // where the finger / cursor is (trailer overlay)
   audio: () => AU.stats(),
   vortexes: () => vortexLog.slice(),
   tints: { tinted, glowSpr, trailGlow: typeof trailGlow === 'function' ? trailGlow : null },
